@@ -4,7 +4,7 @@
 export default function IndexPage() {
     return (
         <div className=''>
-            index page
+            index page&rarr;
         </div>
     )
 }
