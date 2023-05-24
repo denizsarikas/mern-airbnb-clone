@@ -20,13 +20,26 @@ export default function PlacesFormPage() {
     const [checkIn, setCheckIn] = useState('');
     const [checkOut, setCheckOut] = useState('');
     const [maxGuests, setMaxGuests] = useState(1);
+    const [price, setPrice] = useState(100);
     const [redirect, setRedirect] = useState(false);
 
     useEffect(() => {
         if (!id) {
             return;
         }
-        axios.get('places/' + id);
+        axios.get('places/' + id).then(response => {
+            const { data } = response;
+            setTitle(data.title);
+            setAddress(data.address);
+            setAddedPhotos(data.photos)
+            setDescription(data.description);
+            setPerks(data.perks);
+            setExtraInfo(data.extraInfo);
+            setCheckIn(data.checkIn)
+            setCheckOut(data.checkOut)
+            setMaxGuests(data.maxGuests)
+            setPrice(data.price)
+        })
     }, [id])
     function inputHeader(text) {
         return (
@@ -49,20 +62,73 @@ export default function PlacesFormPage() {
         )
     }
 
-    async function addNewPlace(ev) {
+    // async function savePlace(ev) {
+    //     ev.preventDefault();
+    //     await axios.post('/places', {
+    //         title,
+    //         address,
+    //         addedPhotos,
+    //         description,
+    //         perks,
+    //         extraInfo,
+    //         checkIn,
+    //         checkOut,
+    //         maxGuests
+    //     });
+    //     setRedirect(true);
+    // }
+    // async function savePlace(ev) {
+    //     ev.preventDefault();
+    //     if(id){
+    //         //update
+    //         await axios.put('/places', {
+    //             id,
+    //             title,
+    //             address,
+    //             addedPhotos,
+    //             description,
+    //             perks,
+    //             extraInfo,
+    //             checkIn,
+    //             checkOut,
+    //             maxGuests
+    //         });
+    //         setRedirect(true);
+    //     }else{
+    //         //new place
+    //         await axios.post('/places', {
+    //             title,
+    //             address,
+    //             addedPhotos,
+    //             description,
+    //             perks,
+    //             extraInfo,
+    //             checkIn,
+    //             checkOut,
+    //             maxGuests
+    //         });
+    //         setRedirect(true);
+    //     }
+    // }
+    async function savePlace(ev) {
         ev.preventDefault();
-        await axios.post('/places', {
-            title,
-            address,
-            addedPhotos,
-            description,
-            perks,
-            extraInfo,
-            checkIn,
-            checkOut,
-            maxGuests
-        });
-        setRedirect(true);
+        const placeData = {
+            title, address, addedPhotos,
+            description, perks, extraInfo,
+            checkIn, checkOut, maxGuests, price
+        };
+        if (id) {
+            //update
+            await axios.put('/places', {
+                id,
+                ...placeData
+            });
+            setRedirect(true);
+        } else {
+            //new place
+            await axios.post('/places', placeData);
+            setRedirect(true);
+        }
     }
 
     if (redirect) {
@@ -73,7 +139,7 @@ export default function PlacesFormPage() {
 
         <div>
             <AccountNavigation />
-            <form onSubmit={addNewPlace}>
+            <form onSubmit={savePlace}>
                 {preInput('Title', 'Title for your place. Should be short and catchy!')}
                 <input value={title}
                     onChange={ev => setTitle(ev.target.value)}
@@ -104,7 +170,7 @@ export default function PlacesFormPage() {
                     onChange={ev => setExtraInfo(ev.target.value)}
                 />
                 {preInput('Check in&out times', 'Add check in and out times, remember to have some time window for cleaning the room between guests')}
-                <div className="gap-2 grid sm:grid-cols-3">
+                <div className="gap-2 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 ">
                     <div>
                         <h3 className="mt-2 -mb-1">Check in time</h3>
                         <input
@@ -128,6 +194,14 @@ export default function PlacesFormPage() {
                             type="number"
                             value={maxGuests}
                             onChange={ev => setMaxGuests(ev.target.value)}
+                        />
+                    </div>
+                    <div>
+                        <h3 className="mt-2 -mb-1">Price per night</h3>
+                        <input
+                            type="number"
+                            value={price}
+                            onChange={ev => setPrice(ev.target.value)}
                         />
                     </div>
                 </div>
