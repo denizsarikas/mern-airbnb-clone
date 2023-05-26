@@ -2,17 +2,16 @@
 Fully dynamic booking application which users can register, login, create, edit, reserve places which developed with MERN (MongoDB, Express, React [Vite], NodeJs) styled with tailwind
 
 <h3>Index Page</h3>
-![image](https://github.com/denizsarikas/mern-airbnb-clone/assets/75947870/697ae351-92b4-4dea-a654-caecd4f28a24)
-
+![index](https://github.com/denizsarikas/mern-airbnb-clone/assets/75947870/bebf021e-b35a-4bd4-8b14-0a881a03142a)
 
 <h3>Some part of Index Detail</h3>
-![image](https://github.com/denizsarikas/mern-airbnb-clone/assets/75947870/e46e4f23-3fa8-4cd8-83bf-13f20bf23cc9)
+![detail index](https://github.com/denizsarikas/mern-airbnb-clone/assets/75947870/8e113f6d-00c5-430d-a40a-874f7847eb4f)
 
 <h3>Bookings</h3>
-![image](https://github.com/denizsarikas/mern-airbnb-clone/assets/75947870/d1d8def1-7616-43fd-893d-ede8f57c25e0)
+![bookings](https://github.com/denizsarikas/mern-airbnb-clone/assets/75947870/85dbc1e5-13cc-4aa9-8f5e-4fdd81d04de3)
 
 <h3>Bookings Detail</h3>
-![image](https://github.com/denizsarikas/mern-airbnb-clone/assets/75947870/5c69f779-ff7a-4c1c-bc6b-c4b25f5fc73c)
+![booking detail](https://github.com/denizsarikas/mern-airbnb-clone/assets/75947870/090f4523-85e9-42e8-b933-2489d0721dbc)
 
 <h3>Places</h3>
 ![places](https://github.com/denizsarikas/mern-airbnb-clone/assets/75947870/7c5e2c0e-2636-4d3d-abc3-b67ec3e284d8)
