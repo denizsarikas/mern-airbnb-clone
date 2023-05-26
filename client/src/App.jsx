@@ -15,7 +15,8 @@ import PlacePage from './pages/PlacePage'
 import BookingsPage from './pages/BookingsPage'
 import BookingPage from './pages/BookingPage'
 
-axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL;
+// axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL;
+axios.defaults.baseURL = "https://denizsarikas-booking-app.vercel.app/api";
 axios.defaults.withCredentials = true;
 
 
