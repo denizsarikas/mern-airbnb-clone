@@ -2,7 +2,7 @@
 Fully dynamic booking application which users can register, login, create, edit, reserve places which developed with MERN (MongoDB, Express, React [Vite], NodeJs) styled with tailwind
 
 <h3>Index Page</h3>
-![image](https://github.com/denizsarikas/mern-airbnb-clone/assets/75947870/793dd19a-fec9-4eba-a651-65b7f5a3f07f)
+![image](https://github.com/denizsarikas/mern-airbnb-clone/assets/75947870/697ae351-92b4-4dea-a654-caecd4f28a24)
 
 
 <h3>Some part of Index Detail</h3>
